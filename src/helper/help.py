@@ -126,32 +126,6 @@ def resize_image(img, max_dimension = 1120):
 
     return resized_img
 
-def merge_images(image_1, image_2, image_3):
-    img1 = Image.open(image_1)
-    img2 = Image.open(image_2)
-    img3 = Image.open(image_3)
-    
-    width1, height1 = img1.size
-    width2, height2 = img2.size
-    width3, height3 = img3.size
-    
-    print("Image 1 dimensions:", width1, height1)
-    print("Image 2 dimensions:", width2, height2)
-    print("Image 3 dimensions:", width3, height3)
-    
-    total_width = width1 + width2 + width3
-    max_height = max(height1, height2, height3)
-    
-    merged_image = Image.new("RGB", (total_width, max_height))
-    
-    merged_image.paste(img1, (0, 0))
-    merged_image.paste(img2, (width1, 0))
-    merged_image.paste(img3, (width1 + width2, 0))
-    
-    merged_image.save("images/merged_image_horizontal.jpg")
-    
-    print("Merged image dimensions:", merged_image.size)
-    return merged_image
 
 def cprint(response):
     formatted_json = json.dumps(response, indent=4)
