@@ -35,3 +35,6 @@ $ cp .env.example .env
 
 
 Set your environment variables in the `.env` file. Like `TOGETHER_API_KEY` value.
+you can create [here](https://docs.together.ai/docs/introduction)
+
+

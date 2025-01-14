@@ -8,6 +8,7 @@ from io import BytesIO
 import matplotlib.pyplot as plt
 from pygments import highlight, lexers, formatters
 import nest_asyncio
+import base64
 nest_asyncio.apply()
 
 def load_env():
@@ -127,6 +128,7 @@ def resize_image(img, max_dimension = 1120):
     return resized_img
 
 
+
 def cprint(response):
     formatted_json = json.dumps(response, indent=4)
     colorful_json = highlight(formatted_json,
@@ -150,3 +152,8 @@ def wolfram_alpha(query: str) -> str:
 def get_boiling_point(liquid_name, celsius):
     # function body
     return []
+
+
+def encode_image(image_path):
+  with open(image_path, "rb") as image_file:
+    return base64.b64encode(image_file.read()).decode('utf-8')

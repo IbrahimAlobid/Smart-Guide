@@ -1,1 +1,1 @@
-from .help import load_env , llama32 , llama31 , disp_image ,resize_image ,cprint
+from .help import load_env , llama32 , llama31 , disp_image ,resize_image ,cprint ,encode_image
