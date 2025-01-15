@@ -9,6 +9,9 @@ import matplotlib.pyplot as plt
 from pygments import highlight, lexers, formatters
 import nest_asyncio
 import base64
+import math
+
+
 nest_asyncio.apply()
 
 def load_env():
@@ -126,34 +129,3 @@ def resize_image(img, max_dimension = 1120):
     print("New size:", new_width, "x", new_height)
 
     return resized_img
-
-
-
-def cprint(response):
-    formatted_json = json.dumps(response, indent=4)
-    colorful_json = highlight(formatted_json,
-                              lexers.JsonLexer(),
-                              formatters.TerminalFormatter())
-    print(colorful_json)
-
-def wolfram_alpha(query: str) -> str:
-    WOLFRAM_ALPHA_KEY = get_wolfram_alpha_api_key()
-    client = Client(WOLFRAM_ALPHA_KEY)
-    result = client.query(query)
-
-    results = []
-    for pod in result.pods:
-        if pod["@title"] == "Result" or pod["@title"] == "Results":
-          for sub in pod.subpods:
-            results.append(sub.plaintext)
-
-    return '\n'.join(results)
-
-def get_boiling_point(liquid_name, celsius):
-    # function body
-    return []
-
-
-def encode_image(image_path):
-  with open(image_path, "rb") as image_file:
-    return base64.b64encode(image_file.read()).decode('utf-8')
