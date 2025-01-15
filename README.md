@@ -26,7 +26,11 @@ $ conda install ipykernel
 ```bash
 $ python -m ipykernel install --user --name=llm-env
 ```
+5)  install requirements  
 
+```bash
+$ pip install -r requirements.txt
+```
 ### Setup the environment variables
 
 ```bash
